@@ -27,7 +27,28 @@ PRODUCT_VARIANTS_ENABLED = "auto"  # True: размеры/варианты, Fals
 STOCK_MODE = "auto"  # "separate", "product", "none" или "auto".
 ORDERS_ENABLED = "auto"  # False: только каталог, без корзины и заказов.
 CREATE_COMPATIBILITY_TABLES = False  # Не создавать пустые обувные таблицы.
-DATABASE_LOOKUPS = {}  # Поля каталога из справочников; примеры в README.
+DATABASE_LOOKUPS = {
+    "products": {
+        "manufacturer": {
+            "column": "manufacturer_id",
+            "table": "manufacturers",
+            "key": "manufacturer_id",
+            "value": "manufacturer",
+        },
+        "category": {
+            "column": "category_id",
+            "table": "categories",
+            "key": "category_id",
+            "value": "category",
+        },
+        "subcategory": {
+            "column": "subcategory_id",
+            "table": "subcategories",
+            "key": "subcategory_id",
+            "value": "subcategory",
+        },
+    },
+}  # Поля каталога из справочников; примеры в README.
 INSERT_DEFAULTS = {}  # Дополнительные обязательные поля новых заказов.
 DATE_INPUT_FORMATS = ("%d.%m.%Y", "%d.%m.%Y %H:%M:%S")
 
